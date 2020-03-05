@@ -1,5 +1,7 @@
 # Heaps Practice
 
+**Due March 16th 8pm**
+
 ## Learning Goals
 
 By the end of this lesson you should be able to:

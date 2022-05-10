@@ -1,5 +1,4 @@
 class HeapNode:
-  
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -22,7 +21,7 @@ class MinHeap:
             Time Complexity: ?
             Space Complexity: ?
         """
-        pass
+        
 
     def remove(self):
         """ This method removes and returns an element from the heap
@@ -60,7 +59,25 @@ class MinHeap:
             Time complexity: ?
             Space complexity: ?
         """
-        pass
+        #set current index to be last element
+        idx = len(self.store) - 1
+        
+        #while we haven't reached the beginning of the array
+        while self.parent_idx(idx) > 0:
+            #retrieve the index of the parent
+            idx = self.parent_idx(idx)
+            #retrieve the value for the parent element
+            parent = self.store[idx]
+            #retrieve the value for the child element
+            child = self.store[index]
+        
+            if parent > child:
+                self.store[idx] = child
+                self.store[index] = parent
+
+                idx = self.parent_idx(index)
+            
+        #some node gets inserted at the end 
 
     def heap_down(self, index):
         """ This helper method takes an index and 
@@ -68,7 +85,7 @@ class MinHeap:
             larger than either of its children and continues until
             the heap property is reestablished.
         """
-        pass
+
 
     
     def swap(self, index_1, index_2):
@@ -79,3 +96,12 @@ class MinHeap:
         temp = self.store[index_1]
         self.store[index_1] = self.store[index_2]
         self.store[index_2] = temp
+
+    def parent_idx(self, index):
+        return index // 2
+
+    def left_child_idx(self, index):
+        return index * 2
+
+    def right_child_idx(self, index):
+        return index * 2 + 1

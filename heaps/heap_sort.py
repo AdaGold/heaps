@@ -1,8 +1,8 @@
 from heaps.min_heap import MinHeap
 def heap_sort(list):
     """ This method uses a heap to sort an array.
-        Time Complexity:  ?
-        Space Complexity: ?
+        Time Complexity:  O(n logn)
+        Space Complexity: O(n)
     """
     heap = MinHeap()
 

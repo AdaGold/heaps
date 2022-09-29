@@ -1,3 +1,6 @@
+from heapq import heappop
+
+
 class HeapNode:
   
     def __init__(self, key, value):
@@ -35,8 +38,25 @@ class MinHeap:
             Time Complexity: O(log n)
             Space Complexity: O(1)
         """
-        if len(self.store) == 0:
-            return None
+        # if len(self.store) == 0:
+        #     return None
+        # if value == None: 
+        #     value = key
+
+        # node = HeapNode(key, value)
+        # self.store.append(node)
+        # self.heap_up(len(self.store) - 1)
+        # heap_list = list(self.store)
+        # for i in range(len(heap_list)):
+        #     while heap_list[i] > heap_list[0]:
+        #         up = (i + 1) / 2 - 1
+        #         heap_list[i] = heap_list[up]
+        #         i = up
+        #     return i
+        for value in self.store:
+            self.store[value] = next(iter(self.store[value:value+1]), "error")
+            while len(self.store) and self.store[0] in self.store and self.store[self.store[0]]:
+                heappop(self.store)
     
     def __str__(self):
         """ This method lets you print the heap, when you're testing your app.
